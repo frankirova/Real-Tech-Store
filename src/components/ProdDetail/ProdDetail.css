@@ -1,0 +1,49 @@
+p{
+    color: #A5A1A0;
+}
+
+i{
+    font-size: 1.3rem;
+}
+
+
+
+
+.detail{
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.detail-img{
+    max-width:100%;
+    height: auto;
+
+
+}
+
+.price{
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: black;
+}
+
+
+.botones-product-detail{
+    width: fit-content;
+    height: auto;
+}
+.count{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.caract{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

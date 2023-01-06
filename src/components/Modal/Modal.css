@@ -1,0 +1,20 @@
+.item-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.carrito-img-modal{
+    width: 5rem;
+}
+
+.cantidad-btn-eliminar{
+    display: flex;
+    gap: 2rem;
+}
+
+
+footer{
+    border-top: solid rgba(161, 160, 160, 0.535) 1px;
+}

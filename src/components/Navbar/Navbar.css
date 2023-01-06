@@ -1,0 +1,22 @@
+.navbar-brand{
+    color:#198754;
+    /* font-size: 1.5rem; */
+}
+.btn-outline-success{
+    margin: 0;
+}
+
+
+.link{
+    gap: 2em;
+    font-size: 1.2rem;
+    color: #198754;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: #198754;
+
+}

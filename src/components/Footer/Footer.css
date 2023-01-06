@@ -1,0 +1,12 @@
+.footer{
+  margin-top :1rem ;
+
+    background-color: #198754;
+    height: 5rem;
+  }
+  .icon-footer{
+    font-size: 2rem;
+    color: white;
+    margin-top: 1.5rem;
+    letter-spacing: 2rem;
+  }

@@ -1,0 +1,13 @@
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+.carrito-img{
+    width: 12rem;
+    height: auto;
+
+}
