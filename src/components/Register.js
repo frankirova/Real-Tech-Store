@@ -30,7 +30,7 @@ const Register = () => {
     }
 
     return (
-        <div className='bg-secondary d-flex flex-column align-items-center justify-content-center mx-auto vh-100'>
+        <div className='d-flex flex-column align-items-center justify-content-center mx-auto vh-100'>
             {error && <p>{error}</p>}
             <div className="w-75 h-75 bg-light d-flex flex-column align-items-center mx-auto">
             <h2 className="fs-2 my-4">Sign up</h2>

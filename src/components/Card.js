@@ -5,17 +5,18 @@ import { useContext } from "react"
 import { CartContext } from "../Context/CartContext"
 
 import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react'
+import { authContext } from "../Context/LoginContext"
 
 const Cardd = ({ prod }) => {
-    const {id, img, categoria, precio, nombre} = prod
+    const { id, img, categoria, precio, nombre } = prod
 
     const { addToCart } = useContext(CartContext)
+    const { isLoggedIn } = useContext(authContext)
 
     const quantity = 1
     const addTo = (quantity) => {
-        addToCart({id, img, categoria, precio, nombre, quantity})
+        addToCart({ id, img, categoria, precio, nombre, quantity })
     }
-
     return (
         <div>
             <Card maxW='sm'>
@@ -45,12 +46,26 @@ const Cardd = ({ prod }) => {
                 <Divider />
                 <CardFooter>
                     <ButtonGroup>
-                        <Link className="btn btn-success" to={`/prod/${prod.id}`}>
-                            See more
-                        </Link>
-                        <Button onClick={()=> addTo(quantity)} variant='ghost' colorScheme='green'>
-                            Add to cart
-                        </Button>
+                        {
+                            !isLoggedIn ?
+                                <Link className="btn btn-success" to='/Login'>
+                                    See more
+                                </Link> :
+                                <Link className="btn btn-success" to={`/prod/${prod.id}`}>
+                                    See more
+                                </Link>
+                        }
+                        {
+                            !isLoggedIn ?
+                                <Link to='/Login' >
+                                    <Button variant='ghost' colorScheme='green'>
+                                        Add to cart
+                                    </Button>
+                                </Link> :
+                                <Button onClick={() => addTo(quantity)} variant='ghost' colorScheme='green'>
+                                    Add to cart
+                                </Button>
+                        }
                     </ButtonGroup>
                 </CardFooter>
             </Card>
