@@ -45,6 +45,8 @@ Este proyecto se centra en la construcción de una plataforma de comercio electr
 
      * Listados de productos y categorías
      * Carrito de compras y caja
+     * Registro de usuarios
+     * Inicio de sesion de usuarios
      * Interfaz segura y fácil de usar
 
 ### Stack de tecnologias
