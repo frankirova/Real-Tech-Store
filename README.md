@@ -41,30 +41,24 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 Este proyecto se centra en la construcción de una plataforma de comercio electrónico confiable y fácil de usar para que las empresas y los consumidores compren y vendan productos y servicios en línea. La plataforma incluirá una amplia gama de características destinadas a agilizar el proceso de comercio, incluido un escaparate personalizable, procesamiento de pagos, herramientas de gestión de relaciones con los clientes y más.
 
-###Características
+### Características
 
-     *Listados de productos y categorías
-     *Carrito de compras y caja
-     *Procesamiento de pagos (por ejemplo, tarjeta de crédito, PayPal)
-     *Gestión de pedidos
-     *Gestión de clientes
-     *Cotizaciones de envío en tiempo real
-     *Recomendaciones de productos
-     *Herramientas de automatización de marketing
-     *Interfaz segura y fácil de usar
+     * Listados de productos y categorías
+     * Carrito de compras y caja
+     * Interfaz segura y fácil de usar
 
-###Stack de tecnologias
+### Stack de tecnologias
 
      *HTML, CSS y JavaScript para el desarrollo front-end
      *React para el marco de JavaScript
      *Firebase simulando el desarrollo de back-end y el sistema de gestión de bases de datos
 
-###Metas
+### Metas
 
      Proporcionar una plataforma conveniente y segura para que las empresas vendan sus productos y servicios.
      Optimice el proceso de comercio para los clientes, facilitando la búsqueda y compra de los artículos que necesitan
      Ofrezca funciones avanzadas y herramientas de marketing para ayudar a los comerciantes a hacer crecer sus negocios en línea
 
-##Conclusión
+## Conclusión
 
 Este proyecto de desarrollo web de comercio electrónico tiene como objetivo revolucionar la forma en que las empresas y los consumidores interactúan en el mercado digital. Con sus características sólidas y fáciles de usar, la plataforma proporcionará una experiencia de compra segura y sin inconvenientes para todas las partes involucradas.
