@@ -1,6 +1,6 @@
 # Real Tech E-comerce
 
-## Available Scripts
+## Scripts
 
 In the project directory, you can run:
 
@@ -34,6 +34,14 @@ No tienes que usar nunca `eject`. El conjunto de funciones seleccionadas es adec
 ## Introducción
 
 Este proyecto se centra en la construcción de una plataforma de comercio electrónico confiable y fácil de usar para que las empresas y los consumidores compren y vendan productos y servicios en línea. La plataforma incluirá una amplia gama de características destinadas a agilizar el proceso de comercio, incluido un escaparate personalizable, procesamiento de pagos, herramientas de gestión de relaciones con los clientes y más.
+
+### Ejecutar el proyecto
+     git clone https://github.com/frankirova/rt-post-coder 
+     
+     npm i 
+     
+     npm start
+
 
 ### Características
 
