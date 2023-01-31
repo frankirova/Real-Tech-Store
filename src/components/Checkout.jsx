@@ -2,10 +2,9 @@ import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { ToastContainer, toast } from "react-toastify";
+
 import { addOrder, getProductsAddedToCart } from "../services/Firestore/orders";
-import {
-  writeBatch,
-} from "firebase/firestore";
+import { writeBatch } from "firebase/firestore";
 import { db } from "../services/firebaseConfig";
 
 export const Checkout = () => {
