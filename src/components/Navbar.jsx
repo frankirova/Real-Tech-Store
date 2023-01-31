@@ -1,14 +1,24 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../Context/LoginContext";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { CartWidget } from "../components";
-import { UserView } from "../components";
+import { CartWidget, UserView } from "../components";
 
 import "../styles/Navbar.css";
+import { ProdContext } from "../Context/ProdContext";
 
 export const NavBar = () => {
   const { isLoggedIn } = useContext(authContext);
+  const { prod } = useContext(ProdContext);
+  // const categories = ["Notebook", "Celular", "Tablet"];
+  const categories = useMemo(() => {
+    const buffer = new Set();
+    prod.map((prod) => {
+      buffer.add(prod.categoria);
+    });
+    return Array.from(buffer);
+  }, [prod]);
+  // categories.map((cat)=> console.log(cat))
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -18,18 +28,19 @@ export const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink className="link" to="/category/Notebooks">
-              Notebooks
-            </NavLink>
-            <NavLink className="link" to="/category/Celulares">
-              Celulares
-            </NavLink>
-            <NavLink className="link" to="/category/Tablets">
-              Tablets
-            </NavLink>
+            {categories.map((categorie) => (
+              <NavLink
+                className="link"
+                to={`/category/${categorie}`}
+                key={categorie}
+              >
+                {categorie}
+              </NavLink>
+            ))}
           </Nav>
+          ;
         </Navbar.Collapse>
-        {isLoggedIn ? <UserView /> : <></>}
+        {isLoggedIn ? <UserView /> : null}
         <CartWidget />
       </Container>
     </Navbar>
