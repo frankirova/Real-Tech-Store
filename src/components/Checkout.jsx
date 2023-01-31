@@ -2,14 +2,8 @@ import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { ToastContainer, toast } from "react-toastify";
-
+import { addOrder, getProductsAddedToCart } from "../services/Firestore/orders";
 import {
-  addDoc,
-  collection,
-  documentId,
-  getDocs,
-  query,
-  where,
   writeBatch,
 } from "firebase/firestore";
 import { db } from "../services/firebaseConfig";
@@ -43,17 +37,15 @@ export const Checkout = () => {
       };
 
       const batch = writeBatch(db);
+      const prodOfStock = [];
 
       const idProdAddedToCart = cart.map((prod) => prod.id);
-      const prodRef = query(
-        collection(db, "products"),
-        where(documentId(), "in", idProdAddedToCart)
-      );
-      const prodAddedToCartFromFirestore = await getDocs(prodRef);
 
+      const prodAddedToCartFromFirestore = await getProductsAddedToCart(
+        idProdAddedToCart
+      );
       const { docs } = prodAddedToCartFromFirestore;
 
-      const prodOfStock = [];
       docs.forEach((doc) => {
         const docData = doc.data();
         const stockDb = docData.stock;
@@ -70,11 +62,8 @@ export const Checkout = () => {
 
       if (prodOfStock.length === 0) {
         await batch.commit();
-
-        const orderRef = collection(db, "orders");
-        const orderAdded = await addDoc(orderRef, order);
+        addOrder(order);
         notifyCreateOrderSuccess();
-        // sendEmail()
         clearCart();
         navigate("/");
       } else {
