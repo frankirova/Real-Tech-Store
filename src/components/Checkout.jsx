@@ -112,46 +112,48 @@ export const Checkout = () => {
   };
 
   return (
-    <div className="container my-5 d-flex flex-column justify-content-start align-items-center vh-100">
-      <h2 className="titulo my-2">Checkout</h2>
-      <p>Ingrese los siguientes datos para confirmar su orden :</p>
-      <form
-        onSubmit={handleSubmit}
-        className="d-flex flex-column my-3 align-items-center justify-content-center"
-      >
-        <input
-          type="text"
-          className="my-3"
-          id="name"
-          placeholder="Name:"
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          className="my-3"
-          id="phone"
-          placeholder="Phone:"
-          name="phone"
-          value={values.phone}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          className="my-3"
-          id="email"
-          placeholder="Mail:"
-          name="email"
-          value={values.email}
-          onChange={handleChange}
-        />
-      </form>
+    <div className="container">
+      <h2 className="titulo my-2 text-center">Checkout</h2>
+      <div className="container d-flex flex-column align-items-center justify-content-start vh-100">
+        <p className="my-3">Ingrese los siguientes datos para confirmar su orden :</p>
+        <form
+          onSubmit={handleSubmit}
+          className="w-50 d-flex flex-column my-3 justify-content-center"
+        >
+          <label className="text-start">Nombre</label>
+          <input
+            type="text"
+            className="my-3"
+            id="name"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+          />
+          <label className="text-start">Telefono</label>
+          <input
+            type="text"
+            className="my-3"
+            id="phone"
+            name="phone"
+            value={values.phone}
+            onChange={handleChange}
+          />
+          <label className="text-start">Mail</label>
+          <input
+            type="text"
+            className="my-3"
+            id="email"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+          />
+          <button className="btn btn-success" onClick={handleCreateOrder}>
+            Finish order
+          </button>
+        </form>
 
-      <button className="btn btn-success" onClick={handleCreateOrder}>
-        Finish order
-      </button>
-      <ToastContainer />
+        <ToastContainer />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import { authContext } from "../Context/LoginContext";
+import "../styles/Login.css";
 
 export const Login = () => {
   const { login, setIsLoggedIn, error } = useContext(authContext);
@@ -30,7 +31,7 @@ export const Login = () => {
   return (
     <div className="d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
       {error && <p>{error}</p>}
-      <div className="w-50 h-75 bg-light d-flex flex-column align-items-center mx-auto">
+      <div className="login h-75 bg-light d-flex flex-column align-items-center mx-auto">
         <h2 className="fs-2 my-4">Log in</h2>
         <form className="w-50 my-5" onSubmit={handleSubmit}>
           <label className="d-flex mx-2 text-secondary">E-Mail</label>

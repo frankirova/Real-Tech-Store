@@ -24,7 +24,7 @@ export const CartList = () => {
                 removeItem(prod.id);
               }}
             >
-              <i class="fa-solid fa-xmark"></i>
+              <i class="fa-solid fa-xmark text-danger"></i>
             </button>
           </div>
         </div>

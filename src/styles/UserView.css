@@ -1,15 +1,26 @@
-.user-pic{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.user-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-
-.user-menu{
-    display: flex;
-    flex-direction: row;
+.user-menu {
+  display: flex;
+  flex-direction: row;
 }
 
-.menu{
-    background-color: grey;
+.menu {
+  background-color: grey;
 }
+
+@media (max-width: 420px) {
+    /* .user-pic {
+      display: none;
+    }
+    .user-menu{
+        display: none;
+    } */
+    .dropdown-nav{
+        display: none;
+    }
+  }

@@ -42,7 +42,7 @@ export const CardProd = ({ prod }) => {
           </figure>
           <Stack mt="6" spacing="3">
             <Heading size="md">{prod.nombre}</Heading>
-            <Flex>
+            <Flex flexWrap='wrap'>
               <li className="p-1">{prod.procesador}</li>
               <li className="p-1">{prod.ram}</li>
               <li className="p-1">{prod.almacenamiento}</li>

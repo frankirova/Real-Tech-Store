@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
-import { authContext } from "../Context/LoginContext";
 import { useNavigate, Link } from "react-router-dom";
+import { authContext } from "../Context/LoginContext";
+
+import "../styles/Register.css";
 
 export const Register = () => {
   const { signup, error, setIsLoggedIn } = useContext(authContext);
@@ -32,7 +34,7 @@ export const Register = () => {
   return (
     <div className="d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
       {error && <p>{error}</p>}
-      <div className="w-50 h-75 bg-light d-flex flex-column align-items-center mx-auto">
+      <div className="register h-75 bg-light d-flex flex-column align-items-center mx-auto">
         <h2 className="fs-2 my-4">Sign up</h2>
         <form className="w-50 my-5" onSubmit={handleSubmit}>
           <div class="mb-3">
@@ -78,7 +80,7 @@ export const Register = () => {
           <button type="submit" className="btn btn-success w-100">
             Submit
           </button>
-          <Link to="/Login" className="btn text-success w-50 m-2">
+          <Link to="/Login" className="btn text-success w-100">
             Log in
           </Link>
         </form>

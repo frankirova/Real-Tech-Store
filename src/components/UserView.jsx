@@ -29,7 +29,7 @@ export const UserView = () => {
   };
 
   return (
-    <div className="contenedor">
+    <div className="contenedor dropdown-nav">
       <Menu>
         <MenuButton
           as={Button}
