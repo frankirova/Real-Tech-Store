@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProductsById } from "../services/Firestore/products";
-import { ProdDetail } from "../components";
+import { ProdDetail, Spinner } from "../components";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,7 +18,7 @@ export const ProdDetailContainer = () => {
       .finally(() => setIsLoading(false));
   }, [prodId]);
 
-  if (isLoading) return <h1>Cargando...</h1>;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="container d-flex justify-content-center align-items-center h-100">

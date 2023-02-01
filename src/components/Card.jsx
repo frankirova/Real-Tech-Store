@@ -14,6 +14,7 @@ import {
   Divider,
   ButtonGroup,
   Button,
+  Flex,
 } from "@chakra-ui/react";
 
 export const CardProd = ({ prod }) => {
@@ -28,7 +29,7 @@ export const CardProd = ({ prod }) => {
   };
   return (
     <div>
-      <Card maxW="sm">
+      <Card maxW="md" variant="outline">
         <CardBody align="start">
           <figure className="d-flex justify-content-center">
             <Image
@@ -41,12 +42,12 @@ export const CardProd = ({ prod }) => {
           </figure>
           <Stack mt="6" spacing="3">
             <Heading size="md">{prod.nombre}</Heading>
-            <Text>
-              <p>{prod.procesador}</p>
-              <p>{prod.ram}</p>
-              <p>{prod.almacenamiento}</p>
-              <p>{prod.pantalla}</p>
-            </Text>
+            <Flex>
+              <li className="p-1">{prod.procesador}</li>
+              <li className="p-1">{prod.ram}</li>
+              <li className="p-1">{prod.almacenamiento}</li>
+              <li className="p-1">{prod.pantalla}</li>
+            </Flex>
             <Text color="green.600" fontSize="2xl">
               ${prod.precio}
             </Text>

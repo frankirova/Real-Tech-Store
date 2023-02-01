@@ -30,7 +30,7 @@ export const Login = () => {
   return (
     <div className="d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
       {error && <p>{error}</p>}
-      <div className="w-75 h-75 bg-light d-flex flex-column align-items-center mx-auto">
+      <div className="w-50 h-75 bg-light d-flex flex-column align-items-center mx-auto">
         <h2 className="fs-2 my-4">Log in</h2>
         <form className="w-50 my-5" onSubmit={handleSubmit}>
           <label className="d-flex mx-2 text-secondary">E-Mail</label>

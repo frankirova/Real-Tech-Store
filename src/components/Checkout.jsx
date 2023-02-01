@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { ToastContainer, toast } from "react-toastify";
+import { Spinner } from "./Spinner";
 
 import { addOrder, getProductsAddedToCart } from "../services/Firestore/orders";
 import { writeBatch } from "firebase/firestore";
@@ -77,7 +78,7 @@ export const Checkout = () => {
 
   const notifyCreateOrderSuccess = () => {
     toast.success("🦄 Order created successfully", {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -92,7 +93,7 @@ export const Checkout = () => {
     toast.error(
       "Error creating order, check the stock of the product and try again",
       {
-        position: "top-right",
+        position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -104,24 +105,19 @@ export const Checkout = () => {
     );
   };
 
-  if (isLoading) return <h1>Generando orden...</h1>;
+  if (isLoading) return <Spinner />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className="container d-flex flex-column justify-content-center align-items-center vh-100">
-      <Link to="/send" className="btn btn-success">
-        ea
-      </Link>
-      <h1> Checkout </h1>
-
+    <div className="container my-5 d-flex flex-column justify-content-start align-items-center vh-100">
+      <h2 className="titulo my-2">Checkout</h2>
       <p>Ingrese los siguientes datos para confirmar su orden :</p>
-
       <form
         onSubmit={handleSubmit}
-        className="d-flex flex-column align-items-center justify-content-center"
+        className="d-flex flex-column my-3 align-items-center justify-content-center"
       >
         <input
           type="text"
@@ -151,8 +147,9 @@ export const Checkout = () => {
           onChange={handleChange}
         />
       </form>
+
       <button className="btn btn-success" onClick={handleCreateOrder}>
-        Terminar orden
+        Finish order
       </button>
       <ToastContainer />
     </div>

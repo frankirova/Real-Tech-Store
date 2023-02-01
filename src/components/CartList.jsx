@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import { CartContext } from "../Context/CartContext";
 
 import "../styles/CartList.css";
 
 export const CartList = () => {
-  const { cart, getTotal, removeItem } = useContext(CartContext);
+  const { cart, getTotal, removeItem, clearCart } = useContext(CartContext);
   const total = getTotal();
   return (
     <div>
@@ -18,20 +19,25 @@ export const CartList = () => {
               Cantidad: <span id="cantidad">{prod.quantity}</span>
             </p>
             <button
-              className="btn btn-success"
+              className="btn"
               onClick={() => {
                 removeItem(prod.id);
               }}
             >
-              X
+              <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
         </div>
       ))}
-      <h3 className="m-2">Total: ${total}</h3>
-      <div>
-        <Link className="btn btn-success" to="/checkout">
-          Finish order
+      <h3 className="m-2">
+        Total: <b>${total}</b>
+      </h3>
+      <div className="d-flex align-items-start justify-content-center">
+        <Button className="btn btn-danger m-1" onClick={clearCart}>
+          <i class="fa-solid fa-trash"></i>
+        </Button>
+        <Link className="btn btn-success m-1" to="/checkout">
+          Go Checkout
         </Link>
       </div>
     </div>

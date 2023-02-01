@@ -6,7 +6,7 @@ import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import "../styles/Modal.css";
 
 export const ModalCart = (props) => {
-  const { cart, getTotal, removeItem } = useContext(CartContext);
+  const { cart, getTotal, removeItem, clearCart } = useContext(CartContext);
   const total = getTotal();
 
   return (
@@ -26,21 +26,21 @@ export const ModalCart = (props) => {
                     alt="img"
                   ></img>
                 </Col>
-                <Col xs={6} md={4}>
+                <Col xs={3} md={2}>
                   <p className="card-text text-center">{prod.marca}</p>
                 </Col>
-                <Col xs={6} md={4}>
+                <Col xs={3} md={2}>
                   <div className="cantidad-btn-eliminar">
                     <p className="card-text text-center">
                       Cantidad: <span id="cantidad">{prod.quantity}</span>
                     </p>
                     <button
-                      className="btn btn-success "
+                      className="btn "
                       onClick={() => {
                         removeItem(prod.id);
                       }}
                     >
-                      X
+                      <i class="fa-solid fa-xmark"></i>{" "}
                     </button>
                   </div>
                 </Col>
@@ -50,8 +50,13 @@ export const ModalCart = (props) => {
         </Container>
       </Modal.Body>
       <footer className="d-flex justify-content-around">
-        <h3 className="m-2">Total: ${total}</h3>
+        <h3 className="m-2">
+          Total: <b>${total}</b>
+        </h3>
 
+        <Button className="btn btn-danger m-1" onClick={clearCart}>
+          <i class="fa-solid fa-trash"></i>
+        </Button>
         <Button className="btn btn-success m-1" onClick={props.onHide}>
           Close
         </Button>

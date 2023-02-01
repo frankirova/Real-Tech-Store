@@ -10,7 +10,7 @@ import { ProdContext } from "../Context/ProdContext";
 export const NavBar = () => {
   const { isLoggedIn } = useContext(authContext);
   const { prod } = useContext(ProdContext);
-  // const categories = ["Notebook", "Celular", "Tablet"];
+
   const categories = useMemo(() => {
     const buffer = new Set();
     prod.map((prod) => {
@@ -18,11 +18,11 @@ export const NavBar = () => {
     });
     return Array.from(buffer);
   }, [prod]);
-  // categories.map((cat)=> console.log(cat))
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <NavLink className="link" to="/">
+        <NavLink className="text-success" to="/">
           <Navbar.Brand className="navbar-brand">RealTech Store</Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,7 +38,6 @@ export const NavBar = () => {
               </NavLink>
             ))}
           </Nav>
-          ;
         </Navbar.Collapse>
         {isLoggedIn ? <UserView /> : null}
         <CartWidget />

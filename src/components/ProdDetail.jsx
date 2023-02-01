@@ -14,6 +14,7 @@ import {
   Text,
   Divider,
   ButtonGroup,
+  Flex,
 } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 
@@ -36,21 +37,24 @@ export const ProdDetail = ({
     addToCart({ id, img, categoria, precio, nombre, quantity });
   };
   return (
-    <div>
-      <div>
-        <Card maxW="sm">
-          <CardBody>
-            <figure className="d-flex justify-content-center">
-              <Image
-                boxSize="240px"
-                src={img}
-                alt={nombre}
-                objectFit="cover"
-                borderRadius="lg"
-              />
-            </figure>
-            <Stack mt="6" spacing="3">
-              <Heading size="md">{nombre}</Heading>
+    <main className="vh-100">
+      <Card size="lg" justifyContent="center">
+        <CardBody>
+          <Heading size="md">{nombre}</Heading>
+          <Flex direction="row" gap='3rem' minW='400px'>
+            <Stack>
+              <figure className="d-flex justify-content-center">
+                <Image
+                  boxSize="240px"
+                  src={img}
+                  alt={nombre}
+                  objectFit="cover"
+                  borderRadius="lg"
+                />
+              </figure>
+            </Stack>
+
+            <Stack mt="6" spacing="6" justifyContent="center">
               <Text>
                 <p>{procesador}</p>
                 <p>{ram}</p>
@@ -61,26 +65,26 @@ export const ProdDetail = ({
                 ${precio}
               </Text>
             </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter>
-            <ButtonGroup spacing="2">
-              <div className="count-component d-flex align-items-center justify-content-center">
-                {isInCart(id) ? (
-                  <Link to="/cart" className="btn btn-success mx-2 my-auto">
-                    Confirm Order
-                  </Link>
-                ) : stock > 0 ? (
-                  <Count prod={prodById} addTo={addTo} />
-                ) : (
-                  <h1>Sin Stock</h1>
-                )}
-                <ToastContainer />
-              </div>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
-      </div>
-    </div>
+          </Flex>
+        </CardBody>
+        <Divider />
+        <CardFooter className="d-flex align-items-center justify-content-center">
+          <ButtonGroup spacing="2">
+            <div className="count-component d-flex align-items-center justify-content-center">
+              {isInCart(id) ? (
+                <Link to="/cart" className="btn btn-success mx-2 my-auto">
+                  Confirm Order
+                </Link>
+              ) : stock > 0 ? (
+                <Count prod={prodById} addTo={addTo} />
+              ) : (
+                <h1>Sin Stock</h1>
+              )}
+              <ToastContainer />
+            </div>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+    </main>
   );
 };
