@@ -9,7 +9,7 @@ export const CartList = () => {
   const { cart, getTotal, removeItem, clearCart } = useContext(CartContext);
   const total = getTotal();
   return (
-    <div>
+    <>
       {cart.map((prod) => (
         <div key={prod.id}>
           <div className="item">
@@ -40,6 +40,6 @@ export const CartList = () => {
           Go Checkout
         </Link>
       </div>
-    </div>
+    </>
   );
 };

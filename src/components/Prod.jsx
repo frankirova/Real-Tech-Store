@@ -6,10 +6,10 @@ import "../styles/Prod.css";
 
 export const ProdCard = ({ prod }) => {
   return (
-    <div className="card ">
-      <div>
+    <div className="align-items-center justify-content-center">
+      <figure>
         <img className="card-img-top" src={prod.img} alt="img"></img>
-      </div>
+      </figure>
       <h4 className="card-title">{prod.title}</h4>
 
       <div className="caracteristicas">

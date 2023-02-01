@@ -21,19 +21,22 @@ export const ProdDetailContainer = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div className="container d-flex justify-content-center align-items-center h-100">
-      <ProdDetail
-        prodById={prodById}
-        id={prodById.id}
-        categoria={prodById.categoria}
-        nombre={prodById.nombre}
-        precio={prodById.precio}
-        img={prodById.img}
-        pantalla={prodById.pantalla}
-        almacenamiento={prodById.almacenamiento}
-        procesador={prodById.procesador}
-        stock={prodById.stock}
-      />
-    </div>
+    <section className="container">
+      <h2 className="titulo my-2">Detalle</h2>
+      <div className="container d-flex justify-content-center align-items-center h-100">
+        <ProdDetail
+          prodById={prodById}
+          id={prodById.id}
+          categoria={prodById.categoria}
+          nombre={prodById.nombre}
+          precio={prodById.precio}
+          img={prodById.img}
+          pantalla={prodById.pantalla}
+          almacenamiento={prodById.almacenamiento}
+          procesador={prodById.procesador}
+          stock={prodById.stock}
+        />
+      </div>
+    </section>
   );
 };

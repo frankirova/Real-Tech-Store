@@ -13,7 +13,7 @@ export const ProdContainer = () => {
 
   if (isLoading) return <Spinner />;
   return (
-    <div className="conteiner d-flex flex-column justify-content-center h-100 ">
+    <div className="container d-flex flex-column justify-content-center h-100 ">
       <h2 className="titulo my-2">
         Welcome to <span className="titulo-color">RealTech</span> !
       </h2>

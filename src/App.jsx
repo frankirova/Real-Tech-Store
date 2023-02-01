@@ -40,7 +40,6 @@ function App() {
                   />
                   <Route path="cart" element={<CartContainer />} />
                   <Route path="checkout" element={<Checkout />} />
-                  {/* <Route path='/send' element={<ContactUs />} /> */}
                   <Route path="/changePass" element={<ChangePass />} />
                 </Routes>
                 <Footer />
