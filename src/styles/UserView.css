@@ -14,13 +14,7 @@
 }
 
 @media (max-width: 420px) {
-    /* .user-pic {
-      display: none;
-    }
-    .user-menu{
-        display: none;
-    } */
-    /* .dropdown-nav{
-        display: none;
-    } */
+  .menu-button {
+    width: 100%;
   }
+}

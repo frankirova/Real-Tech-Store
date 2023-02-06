@@ -32,10 +32,11 @@ export const UserView = () => {
     <div className="contenedor dropdown-nav my-3">
       <Menu>
         <MenuButton
+        className="menu-button"
           as={Button}
-          rightIcon={<i className="fa-sharp fa-solid fa-caret-down mx-2"></i>}
+          rightIcon={<i className="fa-sharp fa-solid fa-caret-down mx-2 text-success"></i>}
         >
-          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-user text-success"></i>
           {/* <img className="user-pic" src="../assets/user1.jpg" alt="user1"></img> */}
         </MenuButton>
         <MenuList bg="#C7C7C7">
