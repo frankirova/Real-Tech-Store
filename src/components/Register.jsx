@@ -32,9 +32,9 @@ export const Register = () => {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
+    <main className="d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
       {error && <p>{error}</p>}
-      <div className="register h-75 bg-light d-flex flex-column align-items-center mx-auto">
+      <section className="register h-75 bg-light d-flex flex-column align-items-center mx-auto">
         <h2 className="fs-2 my-4">Sign up</h2>
         <form className="w-50 my-5" onSubmit={handleSubmit}>
           <div class="mb-3">
@@ -84,7 +84,7 @@ export const Register = () => {
             Log in
           </Link>
         </form>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };

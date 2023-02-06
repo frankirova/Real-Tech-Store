@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { authContext } from "../Context/LoginContext";
-
+import { toast } from "react-toastify";
 import {
   Card,
   CardBody,
@@ -26,63 +26,62 @@ export const CardProd = ({ prod }) => {
   const quantity = 1;
   const addTo = (quantity) => {
     addToCart({ id, img, categoria, precio, nombre, quantity });
+    // notifyAddToCartSuccess();
   };
   return (
-    <div>
-      <Card maxW="md" variant="outline">
-        <CardBody align="start">
-          <figure className="d-flex justify-content-center">
-            <Image
-              boxSize="240px"
-              src={prod.img}
-              alt={prod.nombre}
-              objectFit="cover"
-              borderRadius="lg"
-            />
-          </figure>
-          <Stack mt="6" spacing="3">
-            <Heading size="md">{prod.nombre}</Heading>
-            <Flex flexWrap='wrap'>
-              <li className="p-1">{prod.procesador}</li>
-              <li className="p-1">{prod.ram}</li>
-              <li className="p-1">{prod.almacenamiento}</li>
-              <li className="p-1">{prod.pantalla}</li>
-            </Flex>
-            <Text color="green.600" fontSize="2xl">
-              ${prod.precio}
-            </Text>
-          </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <ButtonGroup>
-            {!isLoggedIn ? (
-              <Link className="btn btn-success" to="/Login">
-                See more
-              </Link>
-            ) : (
-              <Link className="btn btn-success" to={`/prod/${prod.id}`}>
-                See more
-              </Link>
-            )}
-            {!isLoggedIn ? (
-              <Link to="/Login">
-                <Button variant="ghost" colorScheme="green">
-                  Add to cart
-                </Button>
-              </Link>
-            ) : (
-              <Button
-                onClick={() => addTo(quantity)}
-                variant="ghost"
-                colorScheme="green"
-              >
+    <Card maxW="md" variant="outline">
+      <CardBody align="start">
+        <figure className="d-flex justify-content-center">
+          <Image
+            boxSize="240px"
+            src={prod.img}
+            alt={prod.nombre}
+            objectFit="cover"
+            borderRadius="lg"
+          />
+        </figure>
+        <Stack mt="6" spacing="3">
+          <Heading size="md">{prod.nombre}</Heading>
+          <Flex flexWrap="wrap">
+            <li className="p-1">{prod.procesador}</li>
+            <li className="p-1">{prod.ram}</li>
+            <li className="p-1">{prod.almacenamiento}</li>
+            <li className="p-1">{prod.pantalla}</li>
+          </Flex>
+          <Text color="green.600" fontSize="2xl">
+            ${prod.precio}
+          </Text>
+        </Stack>
+      </CardBody>
+      <Divider />
+      <CardFooter>
+        <ButtonGroup>
+          {!isLoggedIn ? (
+            <Link className="btn btn-success" to="/Login">
+              See more
+            </Link>
+          ) : (
+            <Link className="btn btn-success" to={`/prod/${prod.id}`}>
+              See more
+            </Link>
+          )}
+          {!isLoggedIn ? (
+            <Link to="/Login">
+              <Button variant="ghost" colorScheme="green">
                 Add to cart
               </Button>
-            )}
-          </ButtonGroup>
-        </CardFooter>
-      </Card>
-    </div>
+            </Link>
+          ) : (
+            <Button
+              onClick={() => addTo(quantity)}
+              variant="ghost"
+              colorScheme="green"
+            >
+              Add to cart
+            </Button>
+          )}
+        </ButtonGroup>
+      </CardFooter>
+    </Card>
   );
 };

@@ -25,7 +25,7 @@ export const ChangePass = () => {
   };
   const notifyChangePassSuccess = () => {
     toast.success("🦄 Change password successfully", {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -37,7 +37,7 @@ export const ChangePass = () => {
   };
   const notifyErrorChangePass = () => {
     toast.error("Error change password, try again", {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -48,8 +48,8 @@ export const ChangePass = () => {
     });
   };
   return (
-    <div>
-      <div className="container-sm d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
+    <main>
+      <section className="container-sm d-flex flex-column align-items-center justify-content-center mx-auto vh-100">
         {error && <p>{error}</p>}
         <div className="w-75 h-75 bg-light d-flex flex-column align-items-center mx-auto">
           <h2 className="fs-3 my-4">Change password</h2>
@@ -69,8 +69,8 @@ export const ChangePass = () => {
             </Link>
           </form>
         </div>
-      </div>
+      </section>
       <ToastContainer />
-    </div>
+    </main>
   );
 };

@@ -4,14 +4,12 @@ import "../styles/ProdList.css";
 
 export const ProdList = ({ prods }) => {
   return (
-    <>
-      <div className="row align-items-center justify-content-center">
-        {prods.map((prod) => (
-          <div className="col-md-4" key={prod.id}>
-            <CardProd className="card" prod={prod} />
-          </div>
-        ))}
-      </div>
-    </>
+    <section className="row align-items-center justify-content-center">
+      {prods.map((prod) => (
+        <div className="col-md-4" key={prod.id}>
+          <CardProd className="card" prod={prod} />
+        </div>
+      ))}
+    </section>
   );
 };

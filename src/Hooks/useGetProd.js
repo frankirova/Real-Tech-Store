@@ -9,6 +9,9 @@ export const useGetProds = (categoryId) => {
       .then((prod) => {
         setProd(prod);
       })
+      .catch((error) => {
+        <p>{error}</p>;
+      })
       .finally(() => setIsLoading(false));
   }, [categoryId]);
 

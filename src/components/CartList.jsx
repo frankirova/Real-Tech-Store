@@ -11,7 +11,7 @@ export const CartList = () => {
   return (
     <>
       {cart.map((prod) => (
-        <div key={prod.id}>
+        <section key={prod.id}>
           <div className="item">
             <img className="carrito-img" src={prod.img} alt={prod.nombre}></img>
             <p className="card-text">{prod.nombre}</p>
@@ -27,7 +27,7 @@ export const CartList = () => {
               <i class="fa-solid fa-xmark text-danger"></i>
             </button>
           </div>
-        </div>
+        </section>
       ))}
       <h3 className="m-2">
         Total: <b>${total}</b>

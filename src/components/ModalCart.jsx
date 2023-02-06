@@ -17,7 +17,7 @@ export const ModalCart = (props) => {
       <Modal.Body className="show-grid">
         <Container>
           {cart.map((prod) => (
-            <div className="item-modal" key={prod.id}>
+            <article className="item-modal" key={prod.id}>
               <Row className="align-items-center">
                 <Col xs={6} md={4}>
                   <img
@@ -45,7 +45,7 @@ export const ModalCart = (props) => {
                   </div>
                 </Col>
               </Row>
-            </div>
+            </article>
           ))}
         </Container>
       </Modal.Body>

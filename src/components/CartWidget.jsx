@@ -11,7 +11,7 @@ export const CartWidget = () => {
   const { getQuantity } = useContext(CartContext);
   const totalQuantity = getQuantity();
   return (
-    <div>
+    <>
       {!isLoggedIn ? (
         <Link
           to="/Login"
@@ -30,6 +30,6 @@ export const CartWidget = () => {
         </button>
       )}
       <ModalCart show={modalShow} onHide={() => setModalShow(false)} />
-    </div>
+    </>
   );
 };

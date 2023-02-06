@@ -17,7 +17,7 @@ export const UserView = () => {
   };
   const notifyLogOut = () => {
     toast.success("Log Out successfully", {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -29,13 +29,14 @@ export const UserView = () => {
   };
 
   return (
-    <div className="contenedor dropdown-nav">
+    <div className="contenedor dropdown-nav my-3">
       <Menu>
         <MenuButton
           as={Button}
           rightIcon={<i className="fa-sharp fa-solid fa-caret-down mx-2"></i>}
         >
-          <img className="user-pic" src="../assets/user1.jpg" alt="user1"></img>
+          <i class="fa-solid fa-user"></i>
+          {/* <img className="user-pic" src="../assets/user1.jpg" alt="user1"></img> */}
         </MenuButton>
         <MenuList bg="#C7C7C7">
           <MenuItem bg="#C7C7C7">View Perfil</MenuItem>
@@ -53,7 +54,7 @@ export const UserView = () => {
           </MenuItem>
         </MenuList>
       </Menu>
-      <ToastContainer />
+      <ToastContainer position="bottom-rigth" />
     </div>
   );
 };

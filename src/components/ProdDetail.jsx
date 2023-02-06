@@ -37,11 +37,11 @@ export const ProdDetail = ({
     addToCart({ id, img, categoria, precio, nombre, quantity });
   };
   return (
-    <main className="vh-100">
+    <article className="vh-100">
       <Card size="lg" justifyContent="center">
         <CardBody>
-          <Heading size="md">{nombre}</Heading>
-          <Flex direction="row" gap='3rem' minW='400px'>
+          <Heading textAlign='center' my='1rem' size="md">{nombre}</Heading>
+          <Flex direction="row" gap="3rem" minW="400px">
             <Stack>
               <figure className="d-flex justify-content-center">
                 <Image
@@ -85,6 +85,6 @@ export const ProdDetail = ({
           </ButtonGroup>
         </CardFooter>
       </Card>
-    </main>
+    </article>
   );
 };

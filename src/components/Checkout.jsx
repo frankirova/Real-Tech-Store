@@ -3,17 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import { Spinner } from "./Spinner";
-
 import { addOrder, getProductsAddedToCart } from "../services/Firestore/orders";
 import { writeBatch } from "firebase/firestore";
 import { db } from "../services/firebaseConfig";
+import { FormLabel, Input } from "@chakra-ui/react";
 
 export const Checkout = () => {
   const [values, setValues] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
-
   const { cart, getTotal, clearCart } = useContext(CartContext);
 
   const handleChange = (e) => {
@@ -64,16 +62,21 @@ export const Checkout = () => {
         await batch.commit();
         addOrder(order);
         notifyCreateOrderSuccess();
+        // notifySuccess("🦄 Order created successfully");
         clearCart();
         navigate("/");
-      } else {
-        notifyErrorCreateOrder();
       }
     } catch (error) {
       notifyErrorCreateOrder();
     } finally {
       setIsLoading(false);
     }
+  };
+
+  if (isLoading) return <Spinner />;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   const notifyCreateOrderSuccess = () => {
@@ -88,7 +91,6 @@ export const Checkout = () => {
       theme: "dark",
     });
   };
-
   const notifyErrorCreateOrder = () => {
     toast.error(
       "Error creating order, check the stock of the product and try again",
@@ -104,24 +106,21 @@ export const Checkout = () => {
       }
     );
   };
-
-  if (isLoading) return <Spinner />;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="titulo my-2 text-center">Checkout</h2>
-      <div className="container d-flex flex-column align-items-center justify-content-start vh-100">
-        <p className="my-3">Ingrese los siguientes datos para confirmar su orden :</p>
+      <section className="container d-flex flex-column align-items-center justify-content-start vh-100">
+        <p className="my-3">
+          Ingrese los siguientes datos para confirmar su orden :
+        </p>
         <form
           onSubmit={handleSubmit}
           className="w-50 d-flex flex-column my-3 justify-content-center"
         >
-          <label className="text-start">Nombre</label>
-          <input
+          <FormLabel className="text-start">Nombre</FormLabel>
+          <Input
+            variant="filled"
+            focusBorderColor="green.500"
             type="text"
             className="my-3"
             id="name"
@@ -129,17 +128,21 @@ export const Checkout = () => {
             value={values.name}
             onChange={handleChange}
           />
-          <label className="text-start">Telefono</label>
-          <input
+          <FormLabel className="text-start">Telefono</FormLabel>
+          <Input
+            variant="filled"
+            focusBorderColor="green.500"
             type="text"
-            className="my-3"
+            className="my-1"
             id="phone"
             name="phone"
             value={values.phone}
             onChange={handleChange}
           />
-          <label className="text-start">Mail</label>
-          <input
+          <FormLabel className="text-start">Mail</FormLabel>
+          <Input
+            variant="filled"
+            focusBorderColor="green.500"
             type="text"
             className="my-3"
             id="email"
@@ -153,7 +156,7 @@ export const Checkout = () => {
         </form>
 
         <ToastContainer />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };

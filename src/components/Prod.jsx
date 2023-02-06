@@ -1,17 +1,15 @@
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css";
 import "../styles/Prod.css";
 
 export const ProdCard = ({ prod }) => {
   return (
-    <div className="align-items-center justify-content-center">
+    <section className="align-items-center justify-content-center">
       <figure>
         <img className="card-img-top" src={prod.img} alt="img"></img>
       </figure>
       <h4 className="card-title">{prod.title}</h4>
-
       <div className="caracteristicas">
         <p className="card-text text-secondary">{prod.ram}</p>
         <p className="card-text text-secondary">{prod.pantalla}</p>
@@ -23,6 +21,6 @@ export const ProdCard = ({ prod }) => {
         Ver detalle
       </Link>
       <ToastContainer />
-    </div>
+    </section>
   );
 };

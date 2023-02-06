@@ -1,23 +1,16 @@
-import { useContext, useMemo } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import { authContext } from "../Context/LoginContext";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { CartWidget, UserView } from "../components";
+import { useGetCategories } from "../Hooks/useGetCategories";
 
 import "../styles/Navbar.css";
-import { ProdContext } from "../Context/ProdContext";
 
 export const NavBar = () => {
   const { isLoggedIn } = useContext(authContext);
-  const { prod } = useContext(ProdContext);
-
-  const categories = useMemo(() => {
-    const buffer = new Set();
-    prod.map((prod) => {
-      buffer.add(prod.categoria);
-    });
-    return Array.from(buffer);
-  }, [prod]);
+  const { categoryId } = useParams();
+  const [categories] = useGetCategories(categoryId);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -38,9 +31,11 @@ export const NavBar = () => {
               </NavLink>
             ))}
           </Nav>
+          <Nav>
+            <CartWidget />
+            {isLoggedIn ? <UserView /> : null}
+          </Nav>
         </Navbar.Collapse>
-        {isLoggedIn ? <UserView /> : null}
-        <CartWidget />
       </Container>
     </Navbar>
   );

@@ -1,28 +1,17 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductsById } from "../services/Firestore/products";
 import { ProdDetail, Spinner } from "../components";
 
+import { useGetProdById } from "../Hooks/useGetProdById";
 import "react-toastify/dist/ReactToastify.css";
 
 export const ProdDetailContainer = () => {
-  const [prodById, setProdById] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const { prodId } = useParams();
-
-  useEffect(() => {
-    getProductsById(prodId)
-      .then((prod) => {
-        setProdById(prod);
-      })
-      .finally(() => setIsLoading(false));
-  }, [prodId]);
+  const [prodById, isLoading] = useGetProdById(prodId);
 
   if (isLoading) return <Spinner />;
-
   return (
     <section className="container">
-      <h2 className="titulo my-2">Detalle</h2>
+      <h2 className="titulo my-2 text-center">Detalle</h2>
       <div className="container d-flex justify-content-center align-items-center h-100">
         <ProdDetail
           prodById={prodById}

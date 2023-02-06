@@ -15,37 +15,31 @@ import {
 } from "../src/components";
 
 import "./App.css";
-import { ProdProvider } from "./Context/ProdContext";
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <CartProvider>
-          <ProdProvider>
-            <ChakraProvider>
-              <BrowserRouter>
-                <NavBar />
-                <Routes>
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/Login" element={<Login />} />
-                  <Route path="/" element={<ProdContainer />} />
-                  <Route
-                    path="category/:categoryId"
-                    element={<ProdContainer />}
-                  />
-                  <Route
-                    path="prod/:prodId"
-                    element={<ProdDetailContainer />}
-                  />
-                  <Route path="cart" element={<CartContainer />} />
-                  <Route path="checkout" element={<Checkout />} />
-                  <Route path="/changePass" element={<ChangePass />} />
-                </Routes>
-                <Footer />
-              </BrowserRouter>
-            </ChakraProvider>
-          </ProdProvider>
+          <ChakraProvider>
+            <BrowserRouter>
+              <NavBar />
+              <Routes>
+                <Route path="/register" element={<Register />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/" element={<ProdContainer />} />
+                <Route
+                  path="category/:categoryId"
+                  element={<ProdContainer />}
+                />
+                <Route path="prod/:prodId" element={<ProdDetailContainer />} />
+                <Route path="cart" element={<CartContainer />} />
+                <Route path="checkout" element={<Checkout />} />
+                <Route path="/changePass" element={<ChangePass />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </ChakraProvider>
         </CartProvider>
       </AuthProvider>
     </div>

@@ -16,4 +16,4 @@ export * from "./ProdDetailContainer";
 export * from "./ProdList";
 export * from "./Register";
 export * from "./UserView";
-export * from './Spinner'
+export * from "./Spinner";
