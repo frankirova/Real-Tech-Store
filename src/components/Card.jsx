@@ -29,7 +29,7 @@ export const CardProd = ({ prod }) => {
     // notifyAddToCartSuccess();
   };
   return (
-    <Card maxW="md" variant="outline">
+    <Card minHeight='35rem' maxW="md" variant="outline">
       <CardBody align="start">
         <figure className="d-flex justify-content-center">
           <Image
