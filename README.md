@@ -53,15 +53,15 @@ Este proyecto se centra en la construcción de una plataforma de comercio electr
 
 ### Stack de tecnologias
 
-     *HTML, CSS y JavaScript para el desarrollo front-end
-     *React para el marco de JavaScript
-     *Firebase simulando el desarrollo de back-end y el sistema de gestión de bases de datos
+   HTML, CSS y JavaScript para el desarrollo front-end
+   React para el marco de JavaScript
+   Firebase simulando el desarrollo de back-end y el sistema de gestión de bases de datos
 
 ### Metas
 
-     Proporcionar una plataforma conveniente y segura para que las empresas vendan sus productos y servicios.
-     Optimice el proceso de comercio para los clientes, facilitando la búsqueda y compra de los artículos que necesitan
-     Ofrezca funciones avanzadas y herramientas de marketing para ayudar a los comerciantes a hacer crecer sus negocios en línea
+  Proporcionar una plataforma conveniente y segura para que las empresas vendan sus productos y servicios.
+  Optimice el proceso de comercio para los clientes, facilitando la búsqueda y compra de los artículos que necesitan
+  Ofrezca funciones avanzadas y herramientas de marketing para ayudar a los comerciantes a hacer crecer sus negocios en línea
 
 ## Conclusión
 
