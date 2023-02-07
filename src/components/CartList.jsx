@@ -11,7 +11,7 @@ export const CartList = () => {
   return (
     <>
       {cart.map((prod) => (
-        <section key={prod.id}>
+        <article key={prod.id}>
           <div className="item">
             <img className="carrito-img" src={prod.img} alt={prod.nombre}></img>
             <p className="card-text">{prod.nombre}</p>
@@ -27,19 +27,21 @@ export const CartList = () => {
               <i class="fa-solid fa-xmark text-danger"></i>
             </button>
           </div>
-        </section>
+        </article>
       ))}
-      <h3 className="m-2">
-        Total: <b>${total}</b>
-      </h3>
-      <div className="d-flex align-items-start justify-content-center">
+      <section>
+        <p className="m-2">
+          Total: <b>${total}</b>
+        </p>
+      </section>
+      <section className="d-flex align-items-start justify-content-center">
         <Button className="btn btn-danger m-1" onClick={clearCart}>
           <i class="fa-solid fa-trash"></i>
         </Button>
         <Link className="btn btn-success m-1" to="/checkout">
           Go Checkout
         </Link>
-      </div>
+      </section>
     </>
   );
 };

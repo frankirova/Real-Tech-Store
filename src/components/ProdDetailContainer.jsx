@@ -10,9 +10,9 @@ export const ProdDetailContainer = () => {
 
   if (isLoading) return <Spinner />;
   return (
-    <section className="container">
+    <main className="container">
       <h2 className="titulo my-2 text-center">Detalle</h2>
-      <div className="container d-flex justify-content-center align-items-center h-100">
+      <section className="container d-flex justify-content-center align-items-center h-100">
         <ProdDetail
           prodById={prodById}
           id={prodById.id}
@@ -25,7 +25,7 @@ export const ProdDetailContainer = () => {
           procesador={prodById.procesador}
           stock={prodById.stock}
         />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };

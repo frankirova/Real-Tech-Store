@@ -40,7 +40,9 @@ export const ProdDetail = ({
     <article className="vh-100">
       <Card size="lg" justifyContent="center">
         <CardBody>
-          <Heading textAlign='center' my='1rem' size="md">{nombre}</Heading>
+          <Heading textAlign="center" my="1rem" size="md">
+            {nombre}
+          </Heading>
           <Flex direction="row" gap="3rem" minW="400px">
             <Stack>
               <figure className="d-flex justify-content-center">

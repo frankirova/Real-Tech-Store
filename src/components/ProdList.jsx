@@ -6,9 +6,9 @@ export const ProdList = ({ prods }) => {
   return (
     <section className="row align-items-center justify-content-center">
       {prods.map((prod) => (
-        <div className="col-md-4" key={prod.id}>
+        <article className="col-md-4" key={prod.id}>
           <CardProd className="card" prod={prod} />
-        </div>
+        </article>
       ))}
     </section>
   );
