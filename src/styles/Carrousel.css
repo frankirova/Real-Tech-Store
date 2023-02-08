@@ -1,0 +1,6 @@
+.carousel-item{
+    max-height: 40rem;
+}
+img{
+    object-fit: cover;
+}

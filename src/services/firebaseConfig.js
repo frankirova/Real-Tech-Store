@@ -5,7 +5,8 @@ import { getAuth } from "firebase/auth";
 
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 const firebaseConfig = {
-  apiKey: REACT_APP_API_KEY,
+  // apiKey: REACT_APP_API_KEY,
+  apiKey: 'AIzaSyAr-WcUD69226xIl2wYDEC5ci-ELh19XsA',
   authDomain: "realtech-ecomerce-react-coder.firebaseapp.com",
   projectId: "realtech-ecomerce-react-coder",
   storageBucket: "realtech-ecomerce-react-coder.appspot.com",

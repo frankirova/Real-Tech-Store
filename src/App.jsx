@@ -15,6 +15,7 @@ import {
 } from "../src/components";
 
 import "./App.css";
+import { Home } from "./components/Home";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
               <Routes>
                 <Route path="/register" element={<Register />} />
                 <Route path="/Login" element={<Login />} />
-                <Route path="/" element={<ProdContainer />} />
+                <Route path="/" element={<Home />} />
                 <Route
                   path="category/:categoryId"
                   element={<ProdContainer />}

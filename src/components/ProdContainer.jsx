@@ -14,7 +14,7 @@ export const ProdContainer = () => {
   return (
     <main className="container d-flex flex-column justify-content-center h-100 ">
       <h2 className="titulo my-2 text-center">
-        Welcome to <span className="titulo-color">RealTech</span> !
+        Welcome to <span className="text-success">RealTech</span> !
       </h2>
       <ProdList prods={prod} />
     </main>

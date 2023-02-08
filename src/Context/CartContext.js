@@ -50,6 +50,10 @@ export const CartProvider = ({ children }) => {
 
     return acc;
   };
+  // const getDescuento = (prod) => {
+  //   let descuento = prod.precio * prod.offDecimal;
+  //   let precioFinal = prod.precio - descuento;
+  // };
 
   const removeItem = (id) => {
     const updateCart = cart.filter((prod) => prod.id !== id);
