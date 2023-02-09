@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetProds } from "../Hooks/useGetProd";
+import { useGetProds } from "../Hooks/useGetProducts";
 import { ProdList, Spinner } from "../components";
 
 import "react-toastify/dist/ReactToastify.css";

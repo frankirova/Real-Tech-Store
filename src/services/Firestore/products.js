@@ -54,10 +54,3 @@ export const getProductsById = (prodId) => {
   );
 };
 
-// export const getCategorys = () => {
-//   return new Promise((resolve, reject) => {
-//     const prodRef = ;
-//     collection(db, "products");
-
-//   });
-// };

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useGetProds } from "./useGetProd";
+import { useGetProds } from "./useGetProducts";
 
 export const useGetCategories = (categoryId) => {
   const [prod] = useGetProds(categoryId);

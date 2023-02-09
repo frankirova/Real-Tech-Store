@@ -1,6 +1,12 @@
+import { useParams } from "react-router-dom";
 import { Carrousel } from "../components/Carrousel";
+import { useGetProdsOnOff } from "../Hooks/useGetProducts";
+import { CardProd } from "./Card";
 import { ProdContainer } from "./ProdContainer";
 export const Home = () => {
+  const { categoryId } = useParams();
+  const [enDesc, prod] = useGetProdsOnOff(categoryId);
+
   return (
     <>
       <Carrousel
@@ -8,7 +14,12 @@ export const Home = () => {
         imagen2="https://images.unsplash.com/photo-1622533950960-2ed47209dab0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1209&q=80"
         imagen3="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
       />
-      <ProdContainer />
+      {prod
+        .filter((prod) => prod.off != 0)
+        .map((prod) => (
+          <CardProd prod={prod} />
+        ))}
+      {/* <ProdContainer /> */}
     </>
   );
 };

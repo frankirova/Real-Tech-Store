@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ProdDetail, Spinner } from "../components";
 
-import { useGetProdById } from "../Hooks/useGetProdById";
+import { useGetProdById } from "../Hooks/useGetProducts";
 import "react-toastify/dist/ReactToastify.css";
 
 export const ProdDetailContainer = () => {
