@@ -34,8 +34,8 @@ export const useGetProdById = (prodId) => {
   return [prodById, isLoading];
 };
 
-export const useGetProdsOnOff = (categoryId) => {
-  const [prod] = useGetProds(categoryId);
+export const useGetProdsOnOff = (prod) => {
+  // const [prod] = useGetProds(categoryId);
 
   const buffer = new Set();
   const enDesc = useMemo(() => {
@@ -44,5 +44,5 @@ export const useGetProdsOnOff = (categoryId) => {
     });
     return Array.from(buffer);
   }, [prod]);
-  return [enDesc, prod]
+  return [enDesc];
 };

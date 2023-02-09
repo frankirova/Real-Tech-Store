@@ -1,6 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useParams } from "react-router-dom";
+import { useGetProds } from "../Hooks/useGetProducts";
+export const ProductContext = createContext({});
+export const ProductProvider = ({ children }) => {
+  const { categoryId } = useParams();
+  const [prod, isLoading] = useGetProds(categoryId);
 
-// export const CartProvider = ({ children }) => {
-const arr =[1,2,3]
-
-const newArr = arr.filter((element) => element.off != 0)
+  return (
+    <ProductContext.Provider
+      value={{
+        prod,
+        isLoading,
+      }}
+    >
+      {children}
+    </ProductContext.Provider>
+  );
+};

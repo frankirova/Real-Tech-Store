@@ -19,11 +19,8 @@ import {
 
 export const CardProd = ({ prod }) => {
   const { id, img, categoria, precio, nombre, off, offDecimal } = prod;
-  // console.log(prod);
-
   const { addToCart } = useContext(CartContext);
   const { isLoggedIn } = useContext(authContext);
-
   const quantity = 1;
 
   const addTo = (quantity) => {
@@ -62,9 +59,7 @@ export const CardProd = ({ prod }) => {
                 $ {getDescuento()}
               </Text>
               <Flex>
-                <Text mx='.5rem'>
-                  Antes:
-                </Text>
+                <Text mx=".5rem">Antes:</Text>
                 <Text textDecoration="line-through" color="red.500">
                   ${prod.precio}
                 </Text>
