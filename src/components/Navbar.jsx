@@ -31,6 +31,7 @@ export const NavBar = () => {
                   {categorie}
                 </NavLink>
               ))}
+              <NavLink className='link' to='/contact'>Contact</NavLink>
             </Nav>
             <Nav>
               <CartWidget />

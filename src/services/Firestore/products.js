@@ -34,23 +34,39 @@ export const getProducts = (categoryId) => {
   );
 };
 
-export const getProductsById = (prodId) => {
-  return new Promise(
-    (resolve, reject) => {
-      const prodRef = doc(db, "products", prodId);
+// export const getProductsById = (prodId) => {
+//   return new Promise(
+//     (resolve, reject) => {
+//       const prodRef = doc(db, "products", prodId);
 
-      getDoc(prodRef)
-        .then((response) => {
-          const data = response.data();
-          const prodAdapted = { id: response.id, ...data };
-          resolve(prodAdapted);
-        })
+//       getDoc(prodRef)
+//         .then((response) => {
+//           const data = response.data();
+//           const prodAdapted = { id: response.id, ...data };
+//           resolve(prodAdapted);
+//         })
 
-        .catch((error) => {
-          reject("error");
+//         .catch((error) => {
+//           reject("error");
+//         });
+//     },
+//     [prodId]
+//   );
+// };
+
+export const getContactDates = () => {
+  return new Promise((resolve, reject) => {
+    const ContactDateRef = collection(db, "contactDate");
+    getDocs(ContactDateRef)
+      .then((response) => {
+        const ContactDateAdapted = response.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
         });
-    },
-    [prodId]
-  );
+        resolve(ContactDateAdapted);
+      })
+      .catch((error) => {
+        reject("error");
+      });
+  }, []);
 };
-

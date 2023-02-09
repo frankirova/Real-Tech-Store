@@ -13,6 +13,7 @@ import {
   ChangePass,
   ProdDetailContainer,
   CartContainer,
+  Contact
 } from "../src/components";
 
 import "./App.css";
@@ -23,7 +24,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <ProductProvider>
-          {" "}
           <CartProvider>
             <ChakraProvider>
               <BrowserRouter>
@@ -43,6 +43,8 @@ function App() {
                   <Route path="cart" element={<CartContainer />} />
                   <Route path="checkout" element={<Checkout />} />
                   <Route path="/changePass" element={<ChangePass />} />
+                  <Route path="/contact" element={<Contact />} />
+
                 </Routes>
                 <Footer />
               </BrowserRouter>

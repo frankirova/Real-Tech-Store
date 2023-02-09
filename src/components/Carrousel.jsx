@@ -1,6 +1,6 @@
-// import { Figure, Image } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import "../styles/Carrousel.css";
+
 export const Carrousel = ({ imagen1, imagen2, imagen3 }) => {
   return (
     <Carousel>

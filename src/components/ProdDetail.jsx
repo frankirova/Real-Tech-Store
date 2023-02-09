@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
@@ -18,21 +17,21 @@ import {
 } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 
-export const ProdDetail = ({
-  prodById,
-  id,
-  categoria,
-  precio,
-  nombre,
-  almacenamiento,
-  ram,
-  procesador,
-  pantalla,
-  img,
-  stock,
-}) => {
+export const ProdDetail = ({ prodFilterById }) => {
   const { addToCart, isInCart } = useContext(CartContext);
-
+  const {
+    id,
+    categoria,
+    precio,
+    nombre,
+    almacenamiento,
+    ram,
+    procesador,
+    pantalla,
+    img,
+    stock,
+  } = prodFilterById;
+// console.log(categoria)
   const addTo = (quantity) => {
     addToCart({ id, img, categoria, precio, nombre, quantity });
   };
@@ -78,7 +77,7 @@ export const ProdDetail = ({
                   Confirm Order
                 </Link>
               ) : stock > 0 ? (
-                <Count prod={prodById} addTo={addTo} />
+                <Count prod={prodFilterById} addTo={addTo} />
               ) : (
                 <h1>Sin Stock</h1>
               )}

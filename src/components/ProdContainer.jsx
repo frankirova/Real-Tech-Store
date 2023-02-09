@@ -14,6 +14,7 @@ export const ProdContainer = () => {
   const productsFilterByCategory = prod
     .filter((prod) => prod.categoria == categoryId)
     .map((prod) => prod);
+    // console.log(productsFilterByCategory)
 
   if (!prod) return <p>Error, recargue la pagina o intente mas tarde.</p>;
   if (isLoading) return <Spinner />;
