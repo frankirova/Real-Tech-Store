@@ -13,11 +13,12 @@ import {
   ChangePass,
   ProdDetailContainer,
   CartContainer,
-  Contact
+  Contact,
+  Home,
 } from "../src/components";
+import { UsersManagger } from "./components/UsersManagger";
 
 import "./App.css";
-import { Home } from "./components/Home";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
                   <Route path="checkout" element={<Checkout />} />
                   <Route path="/changePass" element={<ChangePass />} />
                   <Route path="/contact" element={<Contact />} />
-
+                  <Route path="/users" element={<UsersManagger />} />
                 </Routes>
                 <Footer />
               </BrowserRouter>

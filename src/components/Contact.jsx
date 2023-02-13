@@ -19,20 +19,17 @@ import {
 } from "@chakra-ui/react";
 import { BsPerson } from "react-icons/bs";
 import { MdPhone, MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
-import { getContactDates } from "../services/Firestore/products";
+import { useForm } from "../Hooks/useForm";
+import { useGetContactDates } from "../Hooks/useGetContactDates";
 
 export const Contact = () => {
-  const [contactDate, setcontactDate] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  //   const { categoryId } = useParams();
+  const { handleChange, handleSubmit, formState } = useForm({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  useEffect(() => {
-    getContactDates()
-      .then((contactDate) => {
-        setcontactDate(contactDate);
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
+  const { contactDate, isLoading } = useGetContactDates();
 
   if (isLoading)
     return (
@@ -115,7 +112,13 @@ export const Contact = () => {
                             pointerEvents="none"
                             children={<BsPerson color="gray.800" />}
                           />
-                          <Input type="text" size="md" />
+                          <Input
+                            as="input"
+                            type="text"
+                            size="md"
+                            name="name"
+                            onChange={handleChange}
+                          />
                         </InputGroup>
                       </FormControl>
                       <FormControl id="name">
@@ -125,17 +128,26 @@ export const Contact = () => {
                             pointerEvents="none"
                             children={<MdOutlineEmail color="gray.800" />}
                           />
-                          <Input type="text" size="md" />
+                          <Input
+                            as="input"
+                            type="text"
+                            size="md"
+                            name="email"
+                            onChange={handleChange}
+                          />
                         </InputGroup>
                       </FormControl>
                       <FormControl id="name">
                         <FormLabel>Message</FormLabel>
                         <Textarea
+                          name="message"
                           borderColor="gray.300"
                           _hover={{
                             borderRadius: "gray.300",
                           }}
+                          as="textarea"
                           placeholder="Message..."
+                          onChange={handleChange}
                         />
                       </FormControl>
                       <FormControl id="name" float="right">
@@ -144,6 +156,7 @@ export const Contact = () => {
                           bg="#198754"
                           color="white"
                           _hover={{}}
+                          onClick={handleSubmit}
                         >
                           Send Message
                         </Button>

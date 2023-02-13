@@ -18,3 +18,4 @@ export * from "./Register";
 export * from "./UserView";
 export * from "./Spinner";
 export * from "./Contact";
+export * from './Home'

@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { ProductContext } from "../Context/ProdContext";
-import { CardProd } from "./Card";
+import { CardProd, Spinner } from "../components";
 
 export const ProductsInOffer = () => {
-  const { prod } = useContext(ProductContext);
+  const { prod, isLoading } = useContext(ProductContext);
+  if (isLoading) return <Spinner />;
 
   return (
     <section className="row align-items-center justify-content-center">
