@@ -1,20 +1,26 @@
-// import React from "react";
-// import { listAllUsers } from "../services/Firestore/users";
-// import { getUserByEmail } from "../services/Firestore/users";
+import React, { useEffect, useState } from "react";
 
-
-// export const UsersManagger = () => {
-//   return (
-//     <div>
-//       <button className="btn btn-primary" onClick={listAllUsers}>
-//         GET USERS
-//       </button>
-//       <button
-//         className="btn btn-secondary"
-//         onClick={() => getUserByEmail("franciscor1905@gmail.com")}
-//       >
-//         Search
-//       </button>
-//     </div>
-//   );
-// };
+export const UsersManagger = () => {
+  const [res, setUser] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3300/?timestamp=" + new Date().getTime())
+      .then((res) => res.json())
+      .then((res) => {
+        setUser(res);
+      });
+  }, []);
+  console.log(res);
+  // console.log(res);
+  return (
+    <div key={res.id}>
+      <ul className="d-flex flex-wrap w-100 justify-content-around">
+        {res.map((response) => (
+          <div className="d-flex flex-column align-items-center ">
+            <li>id: {response.id}</li>
+            <li>email: {response.email}</li>
+          </div>
+        ))}
+      </ul>
+    </div>
+  );
+};
