@@ -1,7 +1,27 @@
+import { useEffect, useContext } from "react";
+import { authContext } from "../Context/LoginContext";
 import { Carrousel } from "../components/Carrousel";
 import { ProductsInOffer } from "./ProductsInOffer";
+import { toast, ToastContainer } from "react-toastify";
 
 export const Home = () => {
+  const { isLoggedIn } = useContext(authContext);
+
+  const notifySuccess = () => {
+    toast.success("User loged whit exit", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+  useEffect(() => {
+    if (isLoggedIn) notifySuccess();
+  }, [isLoggedIn]);
   return (
     <main>
       <Carrousel
@@ -14,6 +34,7 @@ export const Home = () => {
           HOT <span className="text-success">SALE !</span>
         </h2>
         <ProductsInOffer />
+        <ToastContainer />
       </section>
     </main>
   );

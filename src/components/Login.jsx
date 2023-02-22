@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
 import { authContext } from "../Context/LoginContext";
+
 import "../styles/Login.css";
 
 export const Login = () => {
@@ -22,6 +22,7 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const error = await login(user.email, user.password);
+
     if (!error) {
       navigate("/");
       setIsLoggedIn(true);

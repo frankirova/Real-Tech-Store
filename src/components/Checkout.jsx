@@ -62,7 +62,6 @@ export const Checkout = () => {
         await batch.commit();
         addOrder(order);
         notifyCreateOrderSuccess();
-        // notifySuccess("🦄 Order created successfully");
         clearCart();
         navigate("/");
       }
